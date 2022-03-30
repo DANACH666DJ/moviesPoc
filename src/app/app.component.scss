@@ -1,0 +1,45 @@
+.Navbar {
+    border: 5px solid #000;
+    display: flex;
+    padding: 16px;
+    font-family: sans-serif;
+    color: white;
+    .Navbar__Link-brand {
+        color: black ;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    span.material-icons--color {
+        color: black ;
+    }
+    .Navbar__Items {
+        display:flex;
+        margin: auto;
+        .Navbar__Link {
+            padding-right: 8px;
+          }
+
+          ul li{
+            display:inline;
+          }
+        
+          ul li a{
+            padding: 20px;
+            text-decoration:none;
+            color: black;
+            font-size: 15px;
+            font-weight: bold;
+          }
+          ul {
+            margin:0;
+            padding:0;
+            list-style-type: none;
+            padding-top:15px;
+          }
+    }
+
+    .Navbar__Link-toggle {
+        display: none;
+    }
+
+}

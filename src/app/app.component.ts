@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movies-poc';
+  showNavItems:boolean = false;
 
-  constructor(
-  ) {
-  } 
+  constructor() {
+  }
+
+  classToggle() {
+    this.showNavItems = !this.showNavItems;
+  }
+  
 
 }

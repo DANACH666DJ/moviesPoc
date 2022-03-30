@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+@media only screen and (max-width: 768px) {
+    .Navbar__Items,
+    .Navbar {
+      flex-direction: column;
+    }
+    .Navbar__Items {
+        display: none !important;
+    }
+
+    .Navbar__Items--right {
+      margin-left: 0;
+    }
+
+    .Navbar__ToggleShow {
+        display: flex !important;
+    }
+
+    .Navbar__Link-toggle {
+        align-self: flex-end;
+        display: initial !important;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    
+  }

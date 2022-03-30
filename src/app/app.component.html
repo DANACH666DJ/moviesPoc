@@ -1,13 +1,29 @@
-<div style="text-align:center">
-    <h1>
-      Menú Lateral
-    </h1>
-    <ul>
-      <li><a routerLink="/movies">Movies</a></li>
-      <li><a routerLink="/actors">Actors</a></li>
-      <li><a routerLink="/companies">Companies</a></li>
+<div class="Navbar">
+    <div class="Navbar__Link Navbar__Link-brand">
+       Menu
+     </div>
+     <div (click)="classToggle()" class="Navbar__Link Navbar__Link-toggle">
+       <span class="material-icons material-icons--color">
+         menu
+       </span>
+     </div>
+   <nav class="Navbar__Items" [ngClass]="{'Navbar__ToggleShow': showNavItems}">
+     <ul>
+      <li class="Navbar__Link"><a routerLink="/movies">Peliculas</a></li>
+      <li class="Navbar__Link"><a routerLink="/actors">Actores</a></li>
+      <li class="Navbar__Link"><a routerLink="/companies">Estudios</a></li>
     </ul>
-    
-  </div>
+     <!--<div class="Navbar__Link" routerLink="/movies">
+      Movies
+     </div>
+     <div class="Navbar__Link">
+      Actors
+     </div>
+     <div class="Navbar__Link">
+      Companies
+     </div>-->
+   </nav>
+   
+</div>
 
 <router-outlet></router-outlet>
