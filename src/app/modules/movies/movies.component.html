@@ -1,58 +1,18 @@
 <h1>Peliculas</h1>
-
+<div *ngIf="moviesLoading" class="lds-dual-ring"></div>
 <div class="card-container">
-    <div class="card">
-      <h4 class="card__title">Titulo</h4>
-      <div class="card__img"><img src="https://tendenciaelartedeviajar.com/wp-content/uploads/2017/03/troya-030-07.jpg"></div>
-      <div>
-        <ul>
-          <li>Genero</li>
-          <li>Genero</li>
-        </ul>
-      </div>
+  <ng-container *ngIf="loading; else errMovies">
+    <div class="card" *ngFor="let movie of movies; let i = index">
+      <h4 class="card__title">{{(movie?.title) || '-'}}</h4>
+      <div class="card__img"><img [src]="movie.poster" alt="Portada de pelicula"></div>
+      <ul class="card__genre">
+        <li *ngFor="let genre of movie.genre;">{{'#'+genre}}</li>
+      </ul>
     </div>
-  
-    <div class="card">
-       <h4 class="card__title">Titulo</h4>
-      <div class="card__img"><img src="https://tendenciaelartedeviajar.com/wp-content/uploads/2017/03/troya-030-07.jpg"></div>
-      <div>
-        <ul>
-          <li>Genero</li>
-          <li>Genero</li>
-        </ul> 
-      </div>
-    </div>
-  
-    <div class="card">
-      <h4 class="card__title">Titulo</h4>
-      <div class="card__img"><img src="https://tendenciaelartedeviajar.com/wp-content/uploads/2017/03/troya-030-07.jpg"></div>
-      <div>
-        <ul>
-          <li>Genero</li>
-          <li>Genero</li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="card">
-      <h4 class="card__title">Titulo</h4>
-      <div class="card__img"><img src="https://tendenciaelartedeviajar.com/wp-content/uploads/2017/03/troya-030-07.jpg"></div>
-      <div>
-        <ul>
-          <li>Genero</li>
-          <li>Genero</li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="card">
-      <h4 class="card__title">Titulo</h4>
-      <div class="card__img"><img src="https://tendenciaelartedeviajar.com/wp-content/uploads/2017/03/troya-030-07.jpg"></div>
-      <div>
-        <ul>
-          <li>Genero</li>
-          <li>Genero</li>
-        </ul>
-      </div>
-    </div>
-</div>
+
+  </ng-container>
+  <ng-template #errMovies>
+    <h3>{{errorMessage}}</h3>
+  </ng-template>
+  </div>
+

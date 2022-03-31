@@ -10,29 +10,40 @@ h1 {
     flex: 100%;
     padding: 15px 0;
     border-radius: 15px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 10px 20px;
   }
-  
+
   .card__img img {
-    width: 260px;
+    width: 300px;
+    height: 300px;
     padding: 15px;
   }
-  
+
   .card__title {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 10px;
     font-size: 1.2rem;
   }
-  
-  .card__desc {
-    font-weight: 400;
-    margin: 0;
-    margin-top: auto;
-    line-height: 1rem;
+
+  .card__genre {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    padding-top:15px;
+    margin-top: 15px;
+
+    li{
+      display:inline;
+      padding: 7px;
+      margin-right: 5px;
+      border-radius: 15px;
+      border: 1px solid black;
+    }
+
   }
-  
+
   .card-container {
     //background: rgba(255, 0, 0, 0.432);
     display: flex;
@@ -40,7 +51,7 @@ h1 {
     justify-content: center;
     flex: 100%;
   }
-  
+
   @media screen and (min-width: 500px) {
     .card {
       flex: 40%;

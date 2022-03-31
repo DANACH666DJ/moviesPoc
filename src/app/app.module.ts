@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,6 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

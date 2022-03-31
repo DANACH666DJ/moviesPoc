@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
 
+import { MovieService } from '../../services/movies.service';
+
 
 @NgModule({
   declarations: [
@@ -12,6 +14,9 @@ import { MoviesComponent } from './movies.component';
   imports: [
     CommonModule,
     MoviesRoutingModule
+  ],
+  providers: [
+    MovieService
   ]
 })
 export class MoviesModule { }
