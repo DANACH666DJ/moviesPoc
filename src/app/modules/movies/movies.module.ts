@@ -5,11 +5,13 @@ import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
 
 import { MovieService } from '../../services/movies.service';
+import { NewMovieComponent } from './new-movie/new-movie.component';
 
 
 @NgModule({
   declarations: [
-    MoviesComponent
+    MoviesComponent,
+    NewMovieComponent
   ],
   imports: [
     CommonModule,

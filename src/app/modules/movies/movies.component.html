@@ -1,4 +1,4 @@
-<h1>Peliculas</h1>
+<h1>Películas</h1>
 <div *ngIf="moviesLoading" class="lds-dual-ring"></div>
 <div class="card-container">
   <ng-container *ngIf="loading; else errMovies">
@@ -14,5 +14,11 @@
   <ng-template #errMovies>
     <h3>{{errorMessage}}</h3>
   </ng-template>
-  </div>
+</div>
+
+<a class="fixedbutton" routerLink="newMovie">
+  <span class="material-icons material-icons--color">
+    add
+  </span>
+</a>
 

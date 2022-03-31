@@ -1,0 +1,25 @@
+h1 {
+  text-align: center;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
+  .form-control {
+    border: 0;
+  }
+  .form-control--border {
+    border-bottom: 1px solid black;
+  }
+
+  .submit--center {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+
