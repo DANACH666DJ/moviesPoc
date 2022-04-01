@@ -3,7 +3,7 @@ h1 {
     text-align: center;
 }
 
-.card {
+.card-container__card {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -42,7 +42,6 @@ h1 {
       border-radius: 15px;
       border: 1px solid black;
     }
-
   }
 
   .card-container {
@@ -68,7 +67,7 @@ h1 {
   }
 
   @media screen and (min-width: 600px) {
-    .card {
+    .card-container__card {
       flex: 40%;
     }
     .card__img img {

@@ -2,7 +2,7 @@
 <div *ngIf="moviesLoading" class="lds-dual-ring"></div>
 <div class="card-container">
   <ng-container *ngIf="loading; else errMovies">
-    <div class="card" *ngFor="let movie of movies; let i = index">
+    <div class="card-container__card" *ngFor="let movie of movies; let i = index">
       <h4 class="card__title">{{(movie?.title) || '-'}}</h4>
       <div class="card__img"><img [src]="movie.poster" alt="Portada de pelicula"></div>
       <ul class="card__genre">

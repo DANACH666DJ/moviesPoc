@@ -1,33 +1,36 @@
 <h1>Nueva película</h1>
-<form class="form">
+<form class="form" [formGroup]="newMovieForm" (ngSubmit)="addMovie()">
   <div class="form-control form-control--border">
-    <label for="titulo">Titulo</label>
-    <input type="text" class="form-control" id="titulo" aria-describedby="titulo" placeholder="Titulo">
+    <label for="title">Titulo</label>
+    <input type="text" formControlName="title" class="form-control" id="title" aria-describedby="title" placeholder="Titulo">
   </div>
   <div class="form-control form-control--border">
     <label for="poster">Póster (url)</label>
-    <input type="text" class="form-control" id="poster" aria-describedby="poster" placeholder="Póster (url)">
+    <input type="text" formControlName="poster" class="form-control" id="poster" aria-describedby="poster" placeholder="Póster (url)">
   </div>
   <div class="form-control form-control--border">
     <label for="genre">Géneros</label>
-    <input type="text" class="form-control" id="genre" aria-describedby="genre" placeholder="Añadir un género">
+    <input type="text" formControlName="genre" class="form-control" id="genre" aria-describedby="genre" placeholder="Añadir un género">
+    <ul class="form-control__card-genre" *ngIf="genres">
+      <li *ngFor="let genre of movie.genre;">{{'#'+genre}}</li>
+    </ul>-
   </div>
   <div class="form-control form-control--border">
     <label for="actors">Actores</label>
-    <input type="text" class="form-control" id="actors" aria-describedby="actors" placeholder="Selecciona un actor">
+    <input type="text" formControlName="actors" class="form-control" id="actors" aria-describedby="actors" placeholder="Selecciona un actor">
   </div>
 
   <div class="form-control form-control--border">
     <label for="year">Año</label>
-    <input type="number" class="form-control" id="year" aria-describedby="year" placeholder="Año">
+    <input type="number" formControlName="year" class="form-control" id="year" aria-describedby="year" placeholder="Año">
   </div>
   <div class="form-control form-control--border">
     <label for="duration">Duración</label>
-    <input type="number" class="form-control" id="duration" aria-describedby="duration" placeholder="Duración">
+    <input type="number" formControlName="duration" class="form-control" id="duration" aria-describedby="duration" placeholder="Duración">
   </div>
   <div class="form-control form-control--border">
     <label for="imdbRating">Puntuación</label>
-    <input type="number" class="form-control" id="imdbRating" aria-describedby="imdbRating" placeholder="Puntuación">
+    <input type="number" formControlName="imdbRating" class="form-control" id="imdbRating" aria-describedby="imdbRating" placeholder="Puntuación">
   </div>
   <button type="submit" class="btn btn-secondary submit--center">Añadir película</button>
 </form>

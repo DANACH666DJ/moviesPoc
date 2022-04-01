@@ -6,11 +6,29 @@ h1 {
   width: 50%;
   margin: auto;
   .form-control {
+
+    &--border {
+      border-bottom: 1px solid black;
+    }
+
+    &__card-genre {
+      margin:0;
+      padding:0;
+      list-style-type: none;
+      padding-top:15px;
+      margin-top: 15px;
+
+      li {
+        display:inline;
+        padding: 7px;
+        margin-right: 5px;
+        border-radius: 15px;
+        border: 1px solid black;
+      }
+    }
     border: 0;
   }
-  .form-control--border {
-    border-bottom: 1px solid black;
-  }
+
 
   .submit--center {
     display: block;
