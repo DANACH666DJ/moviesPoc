@@ -1,4 +1,4 @@
-export interface Movie {
+export class Movie {
     id?: number;
     title?: string;
     poster?: number;
@@ -6,5 +6,5 @@ export interface Movie {
     year?: number;
     duration?: number;
     imdbRating?: number;
-    actors?: Array<number>;
+    actors?: Array<string>;
 }

@@ -11,13 +11,18 @@
   <div class="form-control form-control--border">
     <label for="genre">Géneros</label>
     <input type="text" formControlName="genre" class="form-control" id="genre" aria-describedby="genre" placeholder="Añadir un género">
+    <i class="fa fa-plus fa-lg fa-fw form-control__added-genre" aria-hidden="true" (click)="addGenre()"></i>
     <ul class="form-control__card-genre" *ngIf="genres">
-      <li *ngFor="let genre of movie.genre;">{{'#'+genre}}</li>
-    </ul>-
+      <li *ngFor="let genre of genres;">{{'#'+genre}}</li>
+    </ul>
   </div>
   <div class="form-control form-control--border">
     <label for="actors">Actores</label>
     <input type="text" formControlName="actors" class="form-control" id="actors" aria-describedby="actors" placeholder="Selecciona un actor">
+    <i class="fa fa-plus fa-lg fa-fw form-control__added-actor" aria-hidden="true" (click)="addActor()"></i>
+    <ul class="form-control__card-genre" *ngIf="actors">
+      <li *ngFor="let actor of actors;">{{'#'+actor}}</li>
+    </ul>
   </div>
 
   <div class="form-control form-control--border">
