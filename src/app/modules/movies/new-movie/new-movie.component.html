@@ -38,4 +38,5 @@
     <input type="number" formControlName="imdbRating" class="form-control" id="imdbRating" aria-describedby="imdbRating" placeholder="Puntuación">
   </div>
   <button type="submit" class="form-btn submit--center submit-btn">Añadir película</button>
+  <div *ngIf="addMoviesLoading" class="lds-dual-movie"></div>
 </form>

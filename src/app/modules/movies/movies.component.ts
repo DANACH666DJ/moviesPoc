@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie.model';
 import { MovieService } from '../../services/movies.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-movies',
@@ -32,6 +33,13 @@ export class MoviesComponent implements OnInit {
       // tratamos el posible error del servicio, y en el caso que se lance, mostramos al usuario un mensaje informativo
       error: (err) => {
         console.error(err);
+        Swal.fire({
+          confirmButtonColor: '#e3d4a6',
+          icon: 'error',
+          title: 'Uups...',
+          text: 'No se han podido cargar las peliculas!',
+          footer: '<p>Puede recargar la página e intentarlo de nuevo</p>'
+        })
         this.errorMessage = 'Lo sentimos, el listado de peliculas no esta disponible en este momento';
         this.loading = false;
         this.moviesLoading = false;

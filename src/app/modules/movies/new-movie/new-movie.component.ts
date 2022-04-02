@@ -16,6 +16,7 @@ export class NewMovieComponent implements OnInit {
   genres: Array<string>;
   actors: Array<string>;
   disabledFilms: boolean;
+  addMoviesLoading: boolean;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -36,6 +37,7 @@ export class NewMovieComponent implements OnInit {
     this.genres = [];
     this.actors = [];
     this.disabledFilms = true;
+    this.addMoviesLoading = false;
   }
 
   ngOnInit(): void {
@@ -64,6 +66,8 @@ export class NewMovieComponent implements OnInit {
   }
 
   addMovie(){
+    // activamos el icono de carga
+    this.addMoviesLoading = true;
     console.log(this.newMovieForm.get("title")?.value)
     // seteamos todos los datos de la peliculas con los datos del formulario
     this.movie.title = this.newMovieForm.get("title")?.value;
@@ -87,9 +91,10 @@ export class NewMovieComponent implements OnInit {
           title: 'Película agregada, redirigiendo al listado...',
           showConfirmButton: false,
           timer: 1500
-        })
+        });
         // si se añadio la película con éxito, navegamos al listado de peliculas para poder visualizarla
         this.router.navigate(['']);
+        this.addMoviesLoading = false;
       },
       // tratamos el posible error del servicio, y en el caso que se lance, mostramos al usuario un mensaje informativo
       error: (err) => {
@@ -100,7 +105,8 @@ export class NewMovieComponent implements OnInit {
           title: 'Uups...',
           text: 'No se ha podido añadir la pelicula!',
           footer: '<p>Puede intentarlo de nuevo en un momento</p>'
-        })
+        });
+        this.addMoviesLoading = false;
 
       },
       complete: () => console.info('complete')

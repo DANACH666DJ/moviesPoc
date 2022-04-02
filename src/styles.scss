@@ -27,13 +27,13 @@
   }
 
 
-  .lds-dual-ring {
+  .lds-dual-movie {
     display: inline-block;
     margin-bottom: -5px;
     margin-left: 3px;
   }
 
-  .lds-dual-ring:after {
+  .lds-dual-movie:after {
     font-family: "Material Icons";
     content: "\e02c";
     //display: block;
@@ -47,6 +47,7 @@
     -webkit-animation: lds-dual-ring 2s linear infinite;
     animation: lds-dual-ring 2s linear infinite;
   }
+
 
   @keyframes lds-dual-ring {
     0% {
