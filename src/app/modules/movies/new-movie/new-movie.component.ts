@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MovieService } from '../../../services/movies.service';
 import { Movie } from '../../../models/movie.model';
+import  { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-movie',
@@ -13,8 +15,14 @@ export class NewMovieComponent implements OnInit {
   movie: Movie ;
   genres: Array<string>;
   actors: Array<string>;
+  disabledFilms: boolean;
 
-  constructor(private readonly fb: FormBuilder, private readonly moviesService: MovieService) {
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly moviesService: MovieService,
+    private readonly router: Router
+
+     ) {
     this.newMovieForm =  this.fb.group({
       title: ['', Validators.required],
       poster: ['', Validators.required],
@@ -27,6 +35,7 @@ export class NewMovieComponent implements OnInit {
     this.movie = {}
     this.genres = [];
     this.actors = [];
+    this.disabledFilms = true;
   }
 
   ngOnInit(): void {
@@ -70,10 +79,28 @@ export class NewMovieComponent implements OnInit {
      this.moviesService.addmovie(this.movie).subscribe({
       next: (movie) => {
         console.info("Se añadio una nueva pelicula: ", movie);
+        // informamos al usuario que el agregado ha ido correctamente
+        Swal.fire({
+          confirmButtonColor: '#e3d4a6',
+          position: 'center',
+          icon: 'success',
+          title: 'Película agregada, redirigiendo al listado...',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        // si se añadio la película con éxito, navegamos al listado de peliculas para poder visualizarla
+        this.router.navigate(['']);
       },
       // tratamos el posible error del servicio, y en el caso que se lance, mostramos al usuario un mensaje informativo
       error: (err) => {
         console.error('No se pudo añadir la pelicuas', err);
+        Swal.fire({
+          confirmButtonColor: '#e3d4a6',
+          icon: 'error',
+          title: 'Uups...',
+          text: 'No se ha podido añadir la pelicula!',
+          footer: '<p>Puede intentarlo de nuevo en un momento</p>'
+        })
 
       },
       complete: () => console.info('complete')
