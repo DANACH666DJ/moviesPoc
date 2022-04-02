@@ -33,7 +33,7 @@ export class NewMovieComponent implements OnInit {
       duration : [undefined, Validators.required],
       imdbRating : [undefined, Validators.required]
     });
-    this.movie = {}
+    this.movie = {};
     this.genres = [];
     this.actors = [];
     this.disabledFilms = true;

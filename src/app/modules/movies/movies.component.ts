@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie.model';
 import { MovieService } from '../../services/movies.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +15,10 @@ export class MoviesComponent implements OnInit {
   loading: boolean;
   moviesLoading: boolean;
 
-  constructor(private readonly moviesService: MovieService) {
+  constructor(
+    private readonly moviesService: MovieService,
+    private readonly router: Router
+    ) {
     this.movies = [];
     this.errorMessage = '';
     this.loading = true;
@@ -45,15 +49,7 @@ export class MoviesComponent implements OnInit {
         this.moviesLoading = false;
       },
       complete: () => console.info('complete')
-   })/*.subscribe(movies => {
-      this.movies = movies;
-      console.log(this.movies);
-    },
-    (error) => {  //Error callback
-      console.error('error caught in component')
-      this.errorMessage = error;
-      this.loading = false;
-    })*/
+   });
   }
 
 }

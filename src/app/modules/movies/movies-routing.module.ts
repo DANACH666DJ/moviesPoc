@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MoviesComponent } from './movies.component';
 import { NewMovieComponent } from './new-movie/new-movie.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,13 @@ const routes: Routes = [
     component: MoviesComponent
   },
   {
-    path: 'newMovie',
+    path: 'new-movie',
     component: NewMovieComponent
+  },
+  {
+    path: 'edit-movie',
+    component: EditMovieComponent,
+    pathMatch: 'full'
   }
 ];
 

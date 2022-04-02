@@ -8,12 +8,14 @@ import { MoviesComponent } from './movies.component';
 
 import { MovieService } from '../../services/movies.service';
 import { NewMovieComponent } from './new-movie/new-movie.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
 
 
 @NgModule({
   declarations: [
     MoviesComponent,
-    NewMovieComponent
+    NewMovieComponent,
+    EditMovieComponent
   ],
   imports: [
     CommonModule,

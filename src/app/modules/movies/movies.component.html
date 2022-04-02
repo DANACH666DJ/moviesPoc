@@ -3,6 +3,11 @@
 <div class="card-container">
   <ng-container *ngIf="loading; else errMovies">
     <div class="card-container__card" *ngFor="let movie of movies; let i = index">
+      <a class="card-container__edit-movie" routerLink="edit-movie" [state]="{movie}">
+        <span class="material-icons material-icons--color">
+          edit
+        </span>
+      </a>
       <h4 class="card__title">{{(movie?.title) || '-'}}</h4>
       <div class="card__img"><img [src]="movie.poster" alt="Portada de pelicula"></div>
       <ul class="card__genre">
@@ -18,7 +23,7 @@
   </ng-template>
 </div>
 
-<a class="fixedbutton" routerLink="newMovie">
+<a class="new-movie" routerLink="new-movie">
   <span class="material-icons material-icons--color">
     add
   </span>
