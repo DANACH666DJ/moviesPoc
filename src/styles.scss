@@ -1,5 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
 
+// estilos para editar y añadir peliculas
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
+  .form-control {
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    &--border {
+      border-bottom: 1px solid black;
+    }
+
+
+    &__added-genre, &__added-actor {
+        position: relative;
+        cursor: pointer;
+        padding: 10px 10px;
+    }
+
+    &__added-genre {
+      left: -40px;
+      top: -35px;
+
+    }
+
+    &__added-actor {
+      left: -40px;
+      top: -35px;
+    }
+
+    &__card-genre {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin:0;
+      padding:0;
+      list-style-type: none;
+      margin-bottom: 10px;
+
+      li {
+        display:inline;
+        padding: 7px;
+        margin: 10px 10px;
+        border-radius: 15px;
+        border: 1px solid black;
+      }
+    }
+
+    border: 0;
+  }
+
+  .submit--center {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .submit-btn {
+    background: green;
+    color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 20px;
+    &:hover {
+        background: rgb(0, 84, 0);
+        border: 1px solid rgb(12, 0, 0);
+    }
+  }
+  /*.submit-btn-disabled {
+      background:rgba(128, 128, 128, 0.366);
+      border: 1px solid rgba(128, 128, 128, 0.366);
+      &:hover {
+          background: rgba(128, 128, 128, 0.366);
+          border: 1px solid grey;
+      }
+  }*/
+
+}
+
+
+
+
+
+
 @media only screen and (max-width: 768px) {
     // styles navbar
     .Navbar__Items,

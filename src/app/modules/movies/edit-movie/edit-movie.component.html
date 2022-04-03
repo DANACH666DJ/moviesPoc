@@ -1,12 +1,60 @@
 <h1>{{movie.title}}</h1>
 
-<a class="edit-movie">
+<form class="form" [formGroup]="editMovieForm">
+
+  <ng-container *ngIf="loadImage; else errImage">
+    <div class="form__img"><img [src]="movie.poster" alt="Portada de pelicula"></div>
+  </ng-container>
+  <ng-template #errImage>
+    <div class="form__img"><img src="../../../../assets/images/image-not-found.png" alt="Imagen no encontrada"></div>
+  </ng-template>
+
+  <div class="form-control form-control--border">
+    <label for="poster">Póster (url)</label>
+    <input type="text" formControlName="poster" class="form-control" id="poster" aria-describedby="poster" placeholder="Póster (url)">
+  </div>
+  <div class="form-control form-control--border">
+    <label for="genre">Géneros</label>
+    <input type="text" formControlName="genre" class="form-control" id="genre" aria-describedby="genre" placeholder="Añadir un género">
+    <i class="fa fa-plus fa-lg fa-fw form-control__added-genre" aria-hidden="true" (click)="addGenre()"></i>
+    <ul class="form-control__card-genre" *ngIf="movie.genre">
+      <li *ngFor="let genre of movie.genre;">{{'#'+genre}}</li>
+    </ul>
+  </div>
+  <div class="form-control form-control--border">
+    <label for="actors">Actores</label>
+    <input type="text" formControlName="actors" class="form-control" id="actors" aria-describedby="actors" placeholder="Selecciona un actor">
+    <i class="fa fa-plus fa-lg fa-fw form-control__added-actor" aria-hidden="true" (click)="addActor()"></i>
+    <ul class="form-control__card-genre" *ngIf="movie.actors">
+      <li *ngFor="let actor of movie.actors;">{{'#'+actor}}</li>
+    </ul>
+  </div>
+
+  <div class="form-control form-control--border">
+    <label for="year">Año</label>
+    <input type="number" formControlName="year" class="form-control" id="year" aria-describedby="year" placeholder="Año">
+  </div>
+  <div class="form-control form-control--border">
+    <label for="duration">Duración</label>
+    <input type="number" formControlName="duration" class="form-control" id="duration" aria-describedby="duration" placeholder="Duración">
+  </div>
+  <div class="form-control form-control--border">
+    <label for="imdbRating">Puntuación</label>
+    <input type="number" formControlName="imdbRating" class="form-control" id="imdbRating" aria-describedby="imdbRating" placeholder="Puntuación">
+  </div>
+  <div *ngIf="editMoviesLoading" class="lds-dual-movie"></div>
+</form>
+
+
+
+
+<a class="edit-movie" (click)="editMovie()">
   <span class="material-icons material-icons--color">
     edit
   </span>
 </a>
 
-<a class="delete-movie">
+<a class="delete-movie" (click)="deleteMovie()">
   <span class="material-icons material-icons--color">
     delete
   </span>

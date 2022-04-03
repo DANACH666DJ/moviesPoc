@@ -171,18 +171,22 @@
     },
     {
       "title": "El caballero oscuro",
-      "poster": "https://i.blogs.es/8769ca/el-caballero-oscuro-poster/450_1000.jpg",
+      "poster": "https://img.europapress.es/fotoweb/fotonoticia_20200519185315_420.jpg",
       "genre": [
         "accion",
-        "scifi"
+        "scifi",
+        "oscuro",
+        "dc"
       ],
       "actors": [
         "Morgan freeman",
-        "cristian bale"
+        "cristian bale",
+        "Gary Oldman",
+        "Heath Ledger"
       ],
-      "year": 2015,
-      "duration": 180,
-      "imdbRating": 98.8,
+      "year": 2008,
+      "duration": 152,
+      "imdbRating": 8.1,
       "id": 11
     },
     {

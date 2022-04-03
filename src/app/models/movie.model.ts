@@ -1,7 +1,7 @@
 export class Movie {
     id?: number;
     title?: string;
-    poster?: number;
+    poster?: string;
     genre?: Array<string>;
     year?: number;
     duration?: number;

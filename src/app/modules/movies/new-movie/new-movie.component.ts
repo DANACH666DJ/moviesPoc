@@ -68,7 +68,6 @@ export class NewMovieComponent implements OnInit {
   addMovie(){
     // activamos el icono de carga
     this.addMoviesLoading = true;
-    console.log(this.newMovieForm.get("title")?.value)
     // seteamos todos los datos de la peliculas con los datos del formulario
     this.movie.title = this.newMovieForm.get("title")?.value;
     this.movie.poster = this.newMovieForm.get("poster")?.value;
@@ -98,7 +97,7 @@ export class NewMovieComponent implements OnInit {
       },
       // tratamos el posible error del servicio, y en el caso que se lance, mostramos al usuario un mensaje informativo
       error: (err) => {
-        console.error('No se pudo añadir la pelicuas', err);
+        console.error('No se pudo añadir la pelicula', err);
         Swal.fire({
           confirmButtonColor: '#e3d4a6',
           icon: 'error',
@@ -110,7 +109,7 @@ export class NewMovieComponent implements OnInit {
 
       },
       complete: () => console.info('complete')
-   })
+   });
 
   }
 
