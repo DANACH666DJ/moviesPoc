@@ -22,14 +22,14 @@ export class MovieService {
   }
 
   updateMovie(movie: Movie) {
-    return this.http.put(`${this.apiUrl+'dasda'}/${movie.id}`, JSON.stringify(movie), this.httpOpt);
+    return this.http.put(`${this.apiUrl}/${movie.id}`, JSON.stringify(movie), this.httpOpt);
   }
 
   addmovie(movie: Movie) {
     return this.http.post(`${this.apiUrl}`, JSON.stringify(movie), this.httpOpt);
   }
 
-  deleteMovie(id: Movie) {
+  deleteMovie(id: number) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

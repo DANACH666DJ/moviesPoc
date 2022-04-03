@@ -128,7 +128,66 @@ export class EditMovieComponent implements OnInit {
   }
 
   deleteMovie() {
-    console.log("deleteMovie MOVIEEE")
+    console.log("deleteMovie MOVIEEE");
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: '¿Desea elimiar esta pelicula?',
+      text: "Una vez eliminada, no podrá recuperarla!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, quiero borrarla!',
+      cancelButtonText: 'No, deseo mantenerla!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.editMoviesLoading = true;
+
+        this.moviesService.deleteMovie(Number(this.movie.id)).subscribe({
+          next: (movie) => {
+            console.info("Se modifico correctamente la pelicula: ", movie);
+            swalWithBootstrapButtons.fire(
+              'Pelicula eliminada!',
+              'Tu pelicula ha sido elminada.',
+              'success'
+            )
+            // si se edito la película con éxito, navegamos al listado de peliculas para poder visualizar el cambio
+            this.router.navigate(['']);
+            this.editMoviesLoading = false;
+            },
+            // tratamos el posible error del servicio, y en el caso que se lance, mostramos al usuario un mensaje informativo
+            error: (err) => {
+              console.error('No se pudo borrar la pelicula', err);
+              Swal.fire({
+                confirmButtonColor: '#e3d4a6',
+                icon: 'error',
+                title: 'Uups...',
+                text: 'No se ha podido borrar la pelicula!',
+                footer: '<p>Puede intentarlo de nuevo en un momento</p>'
+              });
+              this.editMoviesLoading = false;
+
+            },
+            complete: () => console.info('complete')
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'Tu pelicula no fue eliminada :)',
+          'error'
+        )
+      }
+    })
   }
 
 }

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Dancing Lady",
-      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "poster": "https://m.media-amazon.com/images/I/519bDpIai9L._SY445_.jpg",
       "genre": [
         "Comedy",
         "Musical",
@@ -37,7 +37,7 @@
     {
       "id": 3,
       "title": "Black Rain (Kuroi ame)",
-      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "poster": "https://m.media-amazon.com/images/I/51E2TKH3QCL.jpg",
       "genre": [
         "Drama",
         "War"
@@ -52,7 +52,7 @@
     {
       "id": 4,
       "title": "Spring Break Shark Attack",
-      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTYxODc5NTE5M15BMl5BanBnXkFtZTcwMTkwODIzMQ@@._V1_FMjpg_UX1000_.jpg",
       "genre": [
         "Adventure",
         "Drama",
@@ -207,97 +207,22 @@
       "id": 12
     },
     {
-      "title": "",
-      "poster": "",
-      "genre": [],
-      "actors": [],
-      "year": null,
-      "duration": null,
-      "imdbRating": null,
-      "id": 13
-    },
-    {
       "title": "El señor de los anillos",
-      "poster": "https://pics.filmaffinity.com/El_se_or_de_los_anillos_La_comunidad_del_anillo-744631610-large.jpg",
+      "poster": "https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic4.abc.es%2Fmedia%2Fpeliculas%2F000%2F006%2F039%2Fel-senor-de-los-anillos-la-comunidad-del-anillo-version-extendida-1.jpg&nuevoancho=683&medio=abc",
       "genre": [
         "fantastico",
-        "aventura"
+        "aventura",
+        "acción"
       ],
       "actors": [
         "vigo mortensen",
-        "elijah wood"
+        "elijah wood",
+        "ian mckellen"
       ],
-      "year": 2002,
-      "duration": 190,
-      "imdbRating": 8.9,
+      "year": 2001,
+      "duration": 8,
+      "imdbRating": 8,
       "id": 14
-    },
-    {
-      "title": "eqweqwe",
-      "poster": "eqweq",
-      "genre": [],
-      "actors": [],
-      "year": 112331,
-      "duration": 31231,
-      "imdbRating": 31312123,
-      "id": 15
-    },
-    {
-      "title": "",
-      "poster": "",
-      "genre": [],
-      "actors": [],
-      "year": null,
-      "duration": null,
-      "imdbRating": null,
-      "id": 16
-    },
-    {
-      "title": "",
-      "poster": "",
-      "genre": [
-        "dasdasd",
-        "dasdasd",
-        "dasdsa",
-        "dasdads",
-        "dasdaasd",
-        "dasdasasda",
-        "dasdasd",
-        "dasdasd"
-      ],
-      "actors": [
-        "dasdasd",
-        "dasdasd",
-        "dasdasd",
-        "dasdasd",
-        "dasdassd",
-        "dasdas",
-        "dasdas"
-      ],
-      "year": null,
-      "duration": null,
-      "imdbRating": null,
-      "id": 17
-    },
-    {
-      "title": "",
-      "poster": "",
-      "genre": [],
-      "actors": [],
-      "year": null,
-      "duration": null,
-      "imdbRating": null,
-      "id": 18
-    },
-    {
-      "title": "",
-      "poster": "",
-      "genre": [],
-      "actors": [],
-      "year": null,
-      "duration": null,
-      "imdbRating": null,
-      "id": 19
     }
   ],
   "actors": [
