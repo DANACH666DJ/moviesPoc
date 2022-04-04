@@ -58,8 +58,6 @@ export class EditMovieComponent implements OnInit {
   setEditValue() {
     this.editMovieForm.get("title")?.setValue(this.movie.title);
     this.editMovieForm.get("poster")?.setValue(this.movie.poster);
-    //this.editMovieForm.get("genre")?.setValue(this.movie.genre);
-    //this.editMovieForm.get("actors")?.setValue(this.movie.actors);
     this.editMovieForm.get("year")?.setValue(this.movie.year);
     this.editMovieForm.get("duration")?.setValue(this.movie.duration);
     this.editMovieForm.get("imdbRating")?.setValue(this.movie.imdbRating);

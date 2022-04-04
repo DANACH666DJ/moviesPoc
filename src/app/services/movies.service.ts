@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { of as observableOf, BehaviorSubject, catchError, map, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from '../models/movie.model';
 
@@ -23,11 +23,25 @@ export class MovieService {
   ) { }
 
   getMovies() {
-    return this.http.get<Movie[]>(`${this.apiUrl}`);
+    return this.http.get<Movie[]>(`${this.apiUrl}`).pipe(
+      map((res) => {
+        console.info('getMovies() :: ', res);
+        return res;
+      }), catchError((error: any) => {
+         console.log(error);
+         return observableOf(error);
+      }));;
   }
 
   updateMovie(movie: Movie) {
-    return this.http.put(`${this.apiUrl}/${movie.id}`, JSON.stringify(movie), this.httpOpt);
+    return this.http.put(`${this.apiUrl}/${movie.id}`, JSON.stringify(movie), this.httpOpt).pipe(
+      map((res) => {
+        console.info('updateMovie() :: ', res);
+        return res;
+      }), catchError((error: any) => {
+         console.log(error);
+         return observableOf(error);
+      }));;;
   }
 
   setCurrentMovie(currentMovie: Movie): void {
@@ -35,10 +49,24 @@ export class MovieService {
   }
 
   addmovie(movie: Movie) {
-    return this.http.post(`${this.apiUrl}`, JSON.stringify(movie), this.httpOpt);
+    return this.http.post(`${this.apiUrl}`, JSON.stringify(movie), this.httpOpt).pipe(
+      map((res) => {
+        console.info('addmovie() :: ', res);
+        return res;
+      }), catchError((error: any) => {
+         console.log(error);
+         return observableOf(error);
+      }));;;
   }
 
   deleteMovie(id: number) {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(`${this.apiUrl}/${id}`).pipe(
+      map((res) => {
+        console.info('deleteMovie() :: ', res);
+        return res;
+      }), catchError((error: any) => {
+         console.log(error);
+         return observableOf(error);
+      }));;;
   }
 }

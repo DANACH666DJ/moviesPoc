@@ -1,25 +1,39 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { MoviesComponent } from './movies.component';
+import {  HttpClientModule } from '@angular/common/http';
+import { MovieService } from '../../services/movies.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('BattleComponent', () => {
-  let component: MoviesComponent;
-  let fixture: ComponentFixture<MoviesComponent>;
+describe('MoviesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MoviesComponent ]
+      imports: [
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      declarations: [
+        MoviesComponent
+       ],
+      providers: [
+        MovieService
+      ]
     })
     .compileComponents();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MoviesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+   // propertys needed for testings
+   function setup() {
+    const fixture = TestBed.createComponent(MoviesComponent);
+    const component = fixture.debugElement.componentInstance;
+    const moviesService = TestBed.inject(MovieService);
+
+    return { fixture, component,  moviesService };
+  }
 
   it('should create', () => {
+    const { component } = setup();
     expect(component).toBeTruthy();
   });
 });

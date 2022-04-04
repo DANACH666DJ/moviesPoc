@@ -1,10 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {  TestBed } from '@angular/core/testing';
 
 import { ActorsComponent } from './actors.component';
 
 describe('SearchComponent', () => {
-  let component: ActorsComponent;
-  let fixture: ComponentFixture<ActorsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,13 +11,16 @@ describe('SearchComponent', () => {
     .compileComponents();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ActorsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+   // propertys needed for testings
+   function setup() {
+    const fixture = TestBed.createComponent(ActorsComponent);
+    const component = fixture.debugElement.componentInstance;
+
+    return { fixture, component };
+  }
 
   it('should create', () => {
+    const { component } = setup();
     expect(component).toBeTruthy();
   });
 });

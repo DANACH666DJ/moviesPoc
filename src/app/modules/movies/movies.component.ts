@@ -34,7 +34,6 @@ export class MoviesComponent implements OnInit {
         this.movies = movies;
         // una vez tengamos las peliculas cargadas desde el servicio, quitamos de la vista el loading
         this.moviesLoading = false;
-        console.log(this.movies);
       },
       // tratamos el posible error del servicio, y en el caso que se lance, mostramos al usuario un mensaje informativo
       error: (err) => {

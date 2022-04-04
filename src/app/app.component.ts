@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'movies-poc';
-  showNavItems:boolean = false;
+  showNavItems: boolean = false;
   public activeLang = 'es';
 
   constructor(private translate: TranslateService) {
