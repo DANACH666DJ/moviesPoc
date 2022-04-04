@@ -156,20 +156,6 @@
       ]
     },
     {
-      "id": 10,
-      "title": "Butterflies Have No Memories",
-      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": [],
-      "year": 1990,
-      "duration": 73,
-      "imdbRating": 4.39,
-      "actors": [
-        6,
-        9,
-        11
-      ]
-    },
-    {
       "title": "El caballero oscuro",
       "poster": "https://img.europapress.es/fotoweb/fotonoticia_20200519185315_420.jpg",
       "genre": [
@@ -191,19 +177,21 @@
     },
     {
       "title": "Troya",
-      "poster": "https://pics.filmaffinity.com/Troya-263366287-large.jpg",
+      "poster": "https://images.justwatch.com/poster/125341681/s718",
       "genre": [
         "accion",
         "belico",
-        "dioses"
+        "dioses",
+        "romance"
       ],
       "actors": [
         "brad piit",
-        "eric banna"
+        "eric banna",
+        "orlando bloom"
       ],
-      "year": 2012,
-      "duration": 180,
-      "imdbRating": 9.99,
+      "year": 2004,
+      "duration": 163,
+      "imdbRating": 6.5,
       "id": 12
     },
     {

@@ -1,5 +1,4 @@
 {
-    "Titulo": "Titulo",
-    "Menu": "Menu"
-
+  "pelicula.pelicula" : "Película",
+  "pelicula.nuevaPelicula": "Nueva Película"
 }

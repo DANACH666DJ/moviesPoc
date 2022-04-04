@@ -9,19 +9,10 @@
      </div>
    <nav class="Navbar__Items" [ngClass]="{'Navbar__ToggleShow': showNavItems}">
      <ul>
-      <li class="Navbar__Link"><a routerLink="/movies">Películas</a></li>
-      <li class="Navbar__Link"><a routerLink="/actors">Actores</a></li>
-      <li class="Navbar__Link"><a routerLink="/companies">Estudios</a></li>
+      <li class="Navbar__Link"><a routerLink="/movies" [routerLinkActive]="['is-active']">Películas</a></li>
+      <li class="Navbar__Link"><a routerLink="/actors" [routerLinkActive]="['is-active']">Actores</a></li>
+      <li class="Navbar__Link"><a routerLink="/companies" [routerLinkActive]="['is-active']">Estudios</a></li>
     </ul>
-     <!--<div class="Navbar__Link" routerLink="/movies">
-      Movies
-     </div>
-     <div class="Navbar__Link">
-      Actors
-     </div>
-     <div class="Navbar__Link">
-      Companies
-     </div>-->
    </nav>
 
 </div>

@@ -1,4 +1,9 @@
 .Navbar {
+    .is-active {
+      background-color: rgb(0 0 0 / 8%);
+      border-style: solid;
+    }
+
     border: 5px solid #000;
     display: flex;
     padding: 16px;
@@ -22,7 +27,7 @@
           ul li{
             display:inline;
           }
-        
+
           ul li a{
             padding: 20px;
             text-decoration:none;

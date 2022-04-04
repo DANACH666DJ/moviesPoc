@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'movies-poc';
   showNavItems:boolean = false;
+  public activeLang = 'es';
 
-  constructor() {
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang(this.activeLang);
+    translate.use('es');
   }
 
   classToggle() {
     this.showNavItems = !this.showNavItems;
   }
-  
+
 
 }
