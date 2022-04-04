@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from '../models/movie.model';
 
@@ -12,6 +13,10 @@ export class MovieService {
       'Content-Type': 'application/json'
     })
   };
+  // propiedad privada currentMoviesSubject que protege de la emisión de nuevos valores de nuestro estado
+  private currentMoviesSubject: BehaviorSubject<Movie> = new BehaviorSubject({} as Movie);
+  // este currentsMovies sera el encargado de que los componentes puedan suscribirse a los eventoe que emite el currentMoviesSubject
+  public readonly currentsMovies$: Observable<Movie> = this.currentMoviesSubject.asObservable();
 
   constructor(
     private http: HttpClient
@@ -23,6 +28,10 @@ export class MovieService {
 
   updateMovie(movie: Movie) {
     return this.http.put(`${this.apiUrl}/${movie.id}`, JSON.stringify(movie), this.httpOpt);
+  }
+
+  setCurrentMovie(currentMovie: Movie): void {
+    this.currentMoviesSubject.next(currentMovie);
   }
 
   addmovie(movie: Movie) {

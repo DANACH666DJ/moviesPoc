@@ -4,6 +4,8 @@ import  { Router } from '@angular/router';
 import { Movie } from '../../../models/movie.model';
 import Swal from 'sweetalert2';
 import { MovieService } from '../../../services/movies.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-edit-movie',
@@ -15,6 +17,8 @@ export class EditMovieComponent implements OnInit {
   editMovieForm: FormGroup;
   editMoviesLoading: boolean;
   loadImage: boolean;
+  private updateMovieSubscription: Subscription | undefined;
+  private deleteMovieSubscription: Subscription | undefined;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -36,15 +40,16 @@ export class EditMovieComponent implements OnInit {
     this.loadImage = true;
    }
 
-  ngOnInit(){
+  ngOnInit() : void{
     // obtenemos la pelicula seleccionada del estado de la ruta
     this.movie = history.state.movie;
+    //this.moviesService.setCurrentMovie(this.movie);
+
     // si la pelicula no tuviera una url o viniera a null para mostrar la imagen, mostraríamos la imagen de imagen no encontrada
     if(this.movie.poster === '' || this.movie.poster === null) {
       this.loadImage = false;
 
     }
-    console.log('moviee select: ', this.movie);
     // seteamos todos los valores de la pelicula seleccionada en el formulario
     this.setEditValue();
   }
@@ -84,11 +89,7 @@ export class EditMovieComponent implements OnInit {
 
   editMovie() {
     // seteamos todos los datos de la peliculas con los datos del formulario
-    this.movie.title = this.editMovieForm.get("title")?.value;
-    this.movie.poster = this.editMovieForm.get("poster")?.value;
-    this.movie.year = this.editMovieForm.get("year")?.value;
-    this.movie.duration = this.editMovieForm.get("duration")?.value;
-    this.movie.imdbRating = this.editMovieForm.get("imdbRating")?.value;
+    //this.movie.title = this.editMovieForm.get("title")?.value;
     // lanzamos el modal que preguntara al usuario si desea modificar la pelicula
     Swal.fire({
       confirmButtonColor: '#008000',
@@ -99,8 +100,12 @@ export class EditMovieComponent implements OnInit {
       // si el usuario pulso en el boton de editar lanzamos la petición del update y lanzamos el spinner de carga de servicio
       if (result.isConfirmed) {
         this.editMoviesLoading = true;
+        this.movie.poster = this.editMovieForm.get("poster")?.value;
+        this.movie.year = this.editMovieForm.get("year")?.value;
+        this.movie.duration = this.editMovieForm.get("duration")?.value;
+        this.movie.imdbRating = this.editMovieForm.get("imdbRating")?.value;
         // obtenemos el listado de peliculas para que se lance en el inicio del ciclo de vida del componente
-        this.moviesService.updateMovie(this.movie).subscribe({
+        this.updateMovieSubscription = this.moviesService.updateMovie(this.movie).subscribe({
           next: (movie) => {
             console.info("Se modifico correctamente la pelicula: ", movie);
             Swal.fire('Se edito la pelicula!', '', 'success');
@@ -128,8 +133,6 @@ export class EditMovieComponent implements OnInit {
   }
 
   deleteMovie() {
-    console.log("deleteMovie MOVIEEE");
-
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -150,7 +153,7 @@ export class EditMovieComponent implements OnInit {
       if (result.isConfirmed) {
         this.editMoviesLoading = true;
 
-        this.moviesService.deleteMovie(Number(this.movie.id)).subscribe({
+        this.deleteMovieSubscription = this.moviesService.deleteMovie(Number(this.movie.id)).subscribe({
           next: (movie) => {
             console.info("Se modifico correctamente la pelicula: ", movie);
             swalWithBootstrapButtons.fire(
@@ -189,5 +192,11 @@ export class EditMovieComponent implements OnInit {
       }
     })
   }
+
+  ngOnDestroy(): void {
+    this.updateMovieSubscription?.unsubscribe();
+    this.deleteMovieSubscription?.unsubscribe();
+  }
+
 
 }

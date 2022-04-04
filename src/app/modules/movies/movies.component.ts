@@ -3,6 +3,7 @@ import { Movie } from '../../models/movie.model';
 import { MovieService } from '../../services/movies.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -14,6 +15,7 @@ export class MoviesComponent implements OnInit {
   errorMessage: string;
   loading: boolean;
   moviesLoading: boolean;
+  private moviesServiceSubscription: Subscription | undefined;
 
   constructor(
     private readonly moviesService: MovieService,
@@ -27,7 +29,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
     // obtenemos el listado de peliculas para que se lance en el inicio del ciclo de vida del componente
-    this.moviesService.getMovies().subscribe({
+    this.moviesServiceSubscription = this.moviesService.getMovies().subscribe({
       next: (movies) => {
         this.movies = movies;
         // una vez tengamos las peliculas cargadas desde el servicio, quitamos de la vista el loading
@@ -50,6 +52,11 @@ export class MoviesComponent implements OnInit {
       },
       complete: () => console.info('complete')
    });
+
+  }
+
+  ngOnDestroy(): void {
+    this.moviesServiceSubscription?.unsubscribe();
   }
 
 }

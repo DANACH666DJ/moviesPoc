@@ -4,6 +4,7 @@ import { MovieService } from '../../../services/movies.service';
 import { Movie } from '../../../models/movie.model';
 import  { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-movie',
@@ -17,6 +18,7 @@ export class NewMovieComponent implements OnInit {
   actors: Array<string>;
   disabledFilms: boolean;
   addMoviesLoading: boolean;
+  private addMovieSubscription: Subscription | undefined;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -77,9 +79,8 @@ export class NewMovieComponent implements OnInit {
     this.movie.duration = this.newMovieForm.get("duration")?.value;
     this.movie.imdbRating = this.newMovieForm.get("imdbRating")?.value;
 
-    console.log(this.movie)
      // obtenemos el listado de peliculas para que se lance en el inicio del ciclo de vida del componente
-     this.moviesService.addmovie(this.movie).subscribe({
+     this.addMovieSubscription = this.moviesService.addmovie(this.movie).subscribe({
       next: (movie) => {
         console.info("Se añadio una nueva pelicula: ", movie);
         // informamos al usuario que el agregado ha ido correctamente
@@ -110,7 +111,11 @@ export class NewMovieComponent implements OnInit {
       },
       complete: () => console.info('complete')
    });
+  }
 
+
+  ngOnDestroy(): void {
+    this.addMovieSubscription?.unsubscribe();
   }
 
 }

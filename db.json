@@ -142,13 +142,14 @@
     {
       "id": 9,
       "title": "Alien Nation: The Udara Legacy",
-      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "poster": "https://www.bolsamania.com/cine/wp-content/uploads/2020/09/1-62-600x334.jpg",
       "genre": [
-        "Sci-Fi"
+        "Sci-Fi",
+        "terror"
       ],
-      "year": 1997,
-      "duration": 125,
-      "imdbRating": 2.07,
+      "year": 1979,
+      "duration": 116,
+      "imdbRating": 8,
       "actors": [
         7,
         8,
